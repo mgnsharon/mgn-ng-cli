@@ -21,7 +21,7 @@ RUN set -xe \
     && chown $USER_ID $APP_DIR \
     && chmod a+rw $USER_HOME_DIR \
     && chown -Rf $USER_ID /usr/local/lib /usr/local/include /usr/local/share /usr/local/bin \
-    && (cd "$USER_HOME_DIR"; npm install -g @angular/cli@$NG_CLI_VERSION) \
+    && (cd $USER_HOME_DIR; npm install -g @angular/cli@$NG_CLI_VERSION) \
     && npm cache clean --force
 
 WORKDIR $APP_DIR
