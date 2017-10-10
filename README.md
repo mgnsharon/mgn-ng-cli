@@ -1,5 +1,5 @@
 # mgn-ng-cli
-Docker image for Angular-CLI
+Docker image for building/generating angular apps using Angular CLI
 
 ## Usage examples
 
