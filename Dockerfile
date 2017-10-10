@@ -12,7 +12,7 @@ ENV NPM_CONFIG_LOGLEVEL warn
 ENV HOME $USER_HOME_DIR
 
 RUN set -xe \
-    && apk add --update curl\
+    && apk add --update curl \
     && curl -sL https://github.com/Yelp/dumb-init/releases/download/v1.2.0/dumb-init_1.2.0_amd64 > /usr/bin/dumb-init \
     && chmod +x /usr/bin/dumb-init \
     && mkdir -p $HOME \
