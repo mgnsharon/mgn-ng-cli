@@ -9,7 +9,7 @@ ARG USER_ID=1000
 
 ENV NPM_CONFIG_LOGLEVEL warn
 #angular-cli rc0 crashes with .angular-cli.json in user home
-ENV HOME "$USER_HOME_DIR"
+ENV HOME $USER_HOME_DIR
 
 RUN set -xe \
     && apk add --update curl\
