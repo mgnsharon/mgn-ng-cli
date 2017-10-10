@@ -5,7 +5,6 @@ MAINTAINER Megan Sharon
 ARG NG_CLI_VERSION=1.5.0-beta.4
 ARG USER_HOME_DIR="/tmp"
 ARG APP_DIR="/app"
-ARG USER_ID=1000
 
 ENV NPM_CONFIG_LOGLEVEL warn
 #angular-cli rc0 crashes with .angular-cli.json in user home
@@ -17,16 +16,11 @@ RUN set -xe \
     && chmod +x /usr/bin/dumb-init \
     && mkdir -p $HOME \
     && mkdir -p $APP_DIR \
-    && chown $USER_ID $HOME \
-    && chown $USER_ID $APP_DIR \
     && chmod a+rw $HOME \
-    && chown -Rf $USER_ID /usr/local/lib /usr/local/include /usr/local/share /usr/local/bin \
-    && (cd $HOME; npm install -g @angular/cli@$NG_CLI_VERSION) \
+    && npm install -g @angular/cli@$NG_CLI_VERSION \
     && npm cache clean --force
 
 WORKDIR $APP_DIR
 EXPOSE 4200
 
 ENTRYPOINT ["/usr/bin/dumb-init", "--"]
-
-USER $USER_ID
