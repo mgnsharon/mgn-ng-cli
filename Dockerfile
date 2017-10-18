@@ -24,6 +24,4 @@ RUN set -xe \
     && npm install -g @angular/cli@$NG_CLI_VERSION \
     && npm cache clean --force
 
-RUN ng set defaults.app.prefix wdat
-
 ENTRYPOINT ["/usr/bin/dumb-init", "--"]
